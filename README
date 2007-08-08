@@ -1,35 +1,29 @@
-24th July 2007
+8th August 2007
 
-This is a preview alpha of the mashups module to help developers learn about how to create a SilverStripe module,
-and to allow adventureous hackers to try out and improve the module. More documentation will follow shortly.
+This is a preview alpha of the ShareThis module which will enable automatically inserting Social Bookmarks on Silverstripe sites.
 
 This is part of the Google Summer of Code, and is being written by Lakshan Perera. (http://www.silverstripe.com/Lakshan-Perera/)
 
 To install, 
 
-1. rename the extracted directory to "mashups" and place in the root of your silverstripe installation.
+1. rename the extracted directory to "sharethis" and place in the root of your silverstripe installation.
 I.e. you will now have the following root folders
 
 assets
 mysite
 cms
 jsparty
-mashups
+sharethis
 
 2. Run /db/build/
 
-3. The CMS should now have "Flickr Gallery" and "Mashup Sample" page types.
-Add these and visit them on the public site.
+3. Configure the module for your preference by editing _config.php (you could select the icons you want to appear)
 
-Please raise issues, bugs, contributions in the forum - see http://www.silverstripe.com/google-summer-of-code-forum/flat/1931
+4. Add the $ShareThis variable in your templates where you like to have the icons appear.
 
-3. Read the developer documentation:
- - http://doc.silverstripe.com/doku.php?id=gsoc07mashups
- - Base class: http://doc.silverstripe.com/doku.php?id=restfulservice
- - Flickr Service: http://doc.silverstripe.com/doku.php?id=flickrservice
- 
- Note : To use the FlickrGallery or FlickrService you'll require an API-key from Flickr.
- You can easily obtain one from the following URL : http://www.flickr.com/services/api/keys/apply/
- Place your API key in _config.php of this module, (FlickrService::setAPIKey('c88164229499662e1497335950c61eeb'); )
+4. You could enable the ShareThis icons for each page via the CMS (to enable Go to Behaviour Tab and select the ShareThis checkbox) 
+
+Please raise issues, bugs, contributions in the forum - see http://www.silverstripe.com/google-summer-of-code-forum/reply/2151
+
 
 Email: lakshan@silverstripe.com or matt@silverstripe.com
