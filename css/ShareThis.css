@@ -1,0 +1,10 @@
+.share-list{
+	list-style :none;
+}
+
+.share-list li{
+	display:inline;
+}
+.share-list li img{
+	padding-right : 3px;
+}
