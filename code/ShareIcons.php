@@ -1,19 +1,48 @@
 <?php
-
+/**
+ * Add a field to each SiteTree object and it's subclasses to enable Share icons.
+ * 
+ * You can (and should) customise this class by adding the following options 
+ * to your _config.php file:
+ * - {@link ShareIcons::$EnabledIcons}: An array of the enabled icons
+ * - {@link ShareIcons::$IconTransparent}: Use transparent icons (or not)
+ * - {@link ShareIcons::$ShowTitle}: Show the title next to the icon (or not)
+ */
 class ShareIcons extends DataObjectDecorator {
-	/**
-	 * Add a field to each SiteTree objects and it's subclasses to enable Share icons.
-	*/
+	
 	
 	/**
-	 * Configuration Options
-	*/
+	 * Boolean that determines whether icons are transparent or not.
+	 * @var boolean
+	 */
 	static $IconTransparent = false;
+	
+	/**
+	 * Boolean that determines whether to show the title of the site next to 
+	 * the icon.
+	 * @var boolean
+	 */
 	static $ShowTitle = true;
 	
 	/**
-	 * Sets the enabled icons list
-	*/
+	 * Sets the enabled icons list. May contain any of the following:
+	 * - email
+	 * - print
+	 * - digg
+	 * - reddit
+	 * - delicious
+	 * - furl
+	 * - ma.gnolia
+	 * - newsvine
+	 * - live
+	 * - myweb
+	 * - google
+	 * - stumbleupon
+	 * - simpy
+	 * 
+	 * Example: ShareIcons::$EnabledIcons = array('digg', 'delicious');
+	 * @var array
+	 */
 	static $EnabledIcons = array();
 		 
 	function extraDBFields(){
