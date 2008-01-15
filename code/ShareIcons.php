@@ -59,7 +59,7 @@ class ShareIcons extends DataObjectDecorator {
 	*/
 	
 	function updateCMSFields(FieldSet &$fields) {
-		$fields->addFieldToTab("Root.Behaviour", new CheckboxField("ShareIcons","Show Share Icons in this page ?"));
+		$fields->addFieldToTab("Root.Behaviour", new CheckboxField("ShareIcons","Show Share Icons on this page ?"));
 		return $fields;
 	}
 	
