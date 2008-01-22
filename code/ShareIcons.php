@@ -44,6 +44,20 @@ class ShareIcons extends DataObjectDecorator {
 	 * @var array
 	 */
 	static $EnabledIcons = array();
+	
+	/**
+	 * Allows you to specify alternate images for each of the icons. Will be 
+	 * used only if specified, otherwise the default will be used. If this is 
+	 * used, it won't try to get transparent/non-transparent images.
+	 * @var array
+	 */
+	static $alternate_icons = array();
+	
+	/**
+	 * Disable the title ('Share This!') by setting this static to true.
+	 * @var boolean
+	 */
+	static $disable_sharethis_title = false;
 		 
 	function extraDBFields(){
 	return array(
@@ -128,12 +142,18 @@ class ShareIcons extends DataObjectDecorator {
 	
 	if($obj->ShareIcons){
 	$format = self::$IconTransparent ? "_trans" : "";
-	$snippet = '<h3>Share This !</h3>'; //Title
+	if(!self::$disable_sharethis_title) $snippet = '<h3>Share This !</h3>'; // Only show the title if it hasn't been disabled
 	$snippet .= '<ul class="share-list">';
 	
 		foreach(self::$EnabledIcons as $enabled){
-		$title = self::$ShowTitle ? $bookmarks[$enabled]['title'] : "";
-		$snippet .= '<li><a href="'.$bookmarks[$enabled]['url'].'"><img src="sharethis/images/icons/'.$enabled.$format.'.gif" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
+			$title = self::$ShowTitle ? $bookmarks[$enabled]['title'] : "";
+			$snippet .= '<li><a href="'.$bookmarks[$enabled]['url'].'">';
+			
+			if(isset(self::$alternate_icons["$enabled"]) && Director::fileExists(self::$alternate_icons["$enabled"])) {
+				$snippet .= '<img src="'.self::$alternate_icons["$enabled"].'" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
+			} else {
+				$snippet .= '<img src="sharethis/images/icons/'.$enabled.$format.'.gif" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
+			}
 		}
 		
 	$snippet .= '</ul>';
