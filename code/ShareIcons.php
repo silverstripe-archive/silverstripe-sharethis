@@ -150,9 +150,9 @@ class ShareIcons extends DataObjectDecorator {
 			$snippet .= '<li><a href="'.$bookmarks[$enabled]['url'].'">';
 			
 			if(isset(self::$alternate_icons["$enabled"]) && Director::fileExists(self::$alternate_icons["$enabled"])) {
-				$snippet .= '<img src="'.self::$alternate_icons["$enabled"].'" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
+				$snippet .= '<img src="'.self::$alternate_icons["$enabled"].'" alt="'. $bookmarks[$enabled]['title'].'" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
 			} else {
-				$snippet .= '<img src="sharethis/images/icons/'.$enabled.$format.'.gif" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
+				$snippet .= '<img src="sharethis/images/icons/'.$enabled.$format.'.gif" alt="'. $bookmarks[$enabled]['title'].'" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
 			}
 		}
 		
