@@ -3,7 +3,7 @@
 /**
  * Add decorator to SiteTree
  */
-DataObject::add_extension('SiteTree', 'ShareIcons');
+//DataObject::add_extension('SiteTree', 'ShareIcons');
 //SiteTree::ExtendCMS(array('ShareIcons', 'updateCMSFields'));
 
 /**
