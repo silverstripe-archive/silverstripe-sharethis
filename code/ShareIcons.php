@@ -81,15 +81,13 @@ class ShareIcons extends DataObjectDecorator {
 	 * At the moment this method does nothing.
 	 */
 	
-	function augmentSQL(SQLQuery &$query) {
-	}
+	function augmentSQL(SQLQuery &$query) {}
 
 
 	/**
 	 * At the moment this method does nothing.
 	 */
-	function augmentDatabase() {
-	}
+	function augmentDatabase() {}
 	
 	function ShareThis(){
 	
