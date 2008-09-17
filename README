@@ -1,11 +1,28 @@
+###############################################
+ShareThis Module
+###############################################
+
 8th August 2007
 
 This is a preview alpha of the ShareThis module which will enable automatically inserting Social Bookmarks on Silverstripe sites.
-
 This is part of the Google Summer of Code, and is being written by Lakshan Perera. (http://www.silverstripe.com/Lakshan-Perera/)
 
-To install, 
 
+
+Maintainer Contact
+-----------------------------------------------
+Lakshan Perera (Nickname: lperera)
+<perera.lakshan (at) gmail (dot) com>
+
+Requirements
+-----------------------------------------------
+
+Documentation
+-----------------------------------------------
+http://doc.silverstripe.com/doku.php?id=modules:sharethis
+
+Installation Instructions
+-----------------------------------------------
 1. rename the extracted directory to "sharethis" and place in the root of your silverstripe installation.
 I.e. you will now have the following root folders
 
@@ -25,5 +42,8 @@ mashups
 
 Please raise issues, bugs, contributions in the forum - see http://www.silverstripe.com/modules-discussion/flat/3719
 
+Usage Overview
+-----------------------------------------------
 
-Email: lakshan@silverstripe.com or matt@silverstripe.com
+Known issues
+-----------------------------------------------
