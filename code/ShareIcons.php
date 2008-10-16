@@ -91,7 +91,7 @@ class ShareIcons extends DataObjectDecorator {
 	
 	function ShareThis(){
 		$snippet = "";
-		$page_url = Director::absoluteBaseURL().Director::currentURLSegment();
+		$page_url = Director::absoluteBaseURL() . Controller::curr()->Link();
 		$obj = $this->owner;
 		$page_title = $obj->Title;	
 	
