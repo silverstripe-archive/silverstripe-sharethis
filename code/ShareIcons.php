@@ -54,6 +54,23 @@ class ShareIcons extends DataObjectDecorator {
 	static $alternate_icons = array();
 	
 	/**
+	 * Allows you to specify icons to appear on dataobjects rather then pages
+	 * eg Forum Posts
+	 */
+	static $dataobject_sharing = false;
+	
+	/**
+	 * Default Controller if needed for dataobject sharing. Eg forum/
+	 */
+	static $dataobject_controller = "";
+	
+	/**
+	 * Appends a string to the end of the title which is submitted
+	 * to the providers
+	 */
+	static $custom_title = "";
+	
+	/**
 	 * Disable the title ('Share This!') by setting this static to true.
 	 * @var boolean
 	 */
@@ -93,57 +110,62 @@ class ShareIcons extends DataObjectDecorator {
 		$snippet = "";
 		$page_url = Director::absoluteBaseURL() . Controller::curr()->Link();
 		$obj = $this->owner;
+		if(self::$dataobject_sharing) {
+			$page_url = Director::absoluteBaseURL() . self::$dataobject_controller . $obj->ID;
+		}
 		$page_title = $obj->Title;	
-	
+		if(self::$custom_title) {
+			$page_title .= ' ' . self::$custom_title;
+		}
 		$bookmarks = array(
-		"email" => array(
-					"url" => "mailto:?body=$page_url",
-					"title" => "Email"),
-		"print" => array(
-					"url" => "javascript:window.print()",
-					"title" => "Print"),	
-		"digg" => array(
-					"url" => "http://digg.com/submit?".htmlentities("phase=2&url=$page_url&title=$page_title"),
-					"title" => "Digg this!"),
-		"reddit" => array(
-					"url" => "http://reddit.com/submit?".htmlentities("url=$page_url&title=$page_title"),
-					"title" => "Reddit!"),
-		"delicious" => array(
-					"url" => "http://del.icio.us/post?".htmlentities("v=4&noui&jump=close&url=$page_url&title=$page_title"),
-					"title" => "Add to del.icio.us"),
-		"furl" => array(
-					"url" => "http://www.furl.net/storeIt.jsp?".htmlentities("t=$page_title&u=$page_url"),
-					"title" => "Furl this!"),
-		"ma.gnolia" => array(
-					"url" => "http://ma.gnolia.com/bookmarklet/add?".htmlentities("url=$page_url&title=$page_title"),
-					"title" => "Add to ma.gnolia"),
-		"newsvine" => array(
-					"url" => "http://www.newsvine.com/_tools/seed".htmlentities("&save?u=$page_url&h=$page_title"), 
-					"title" => "Save to Newsvine!"),
-		"live" => array(
-					"url" => "https://favorites.live.com/quickadd.aspx?".htmlentities("marklet=1&mkt=en-us&url=$page_url&title=$page_title&top=1"),
-					"title" => "Add to Windows Live"),
-		"myweb" => array(
-					"url" =>  "http://myweb.yahoo.com/myresults/bookmarklet?".htmlentities("t=$page_title&u=$page_url&ei=UTF"),
-					"title" => "Add to Yahoo MyWeb"),
-		"google" => array(
-					"url" =>  "http://www.google.com/bookmarks/mark?".htmlentities("op=edit&output=popup&bkmk=$page_url&title=$page_title"),
-					"title" => "Googlize this post!"),
-		"stumbleupon" => array(
-					"url" => "http://www.stumbleupon.com/submit?".htmlentities("url=$page_url&title=$page_title"),
-					"title" => "Stumble It!"),
-		"facebook" => array(
-				   "url" => "http://www.facebook.com/share.php?".htmlentities("u=$page_url&t=$page_title"),
-				   "title" => "Share on Facebook"),
-		"simpy" => array(
-					"url" => "http://simpy.com/simpy/LinkAdd.do?".htmlentities("title=$page_title&href=$page_url"),
-					"title" => "Add to Simpy")
+			"email" => array(
+						"url" => "mailto:?body=$page_url",
+						"title" => "Email"),
+			"print" => array(
+						"url" => "javascript:window.print()",
+						"title" => "Print"),	
+			"digg" => array(
+						"url" => "http://digg.com/submit?".htmlentities("phase=2&url=$page_url&title=$page_title"),
+						"title" => "Digg this!"),
+			"reddit" => array(
+						"url" => "http://reddit.com/submit?".htmlentities("url=$page_url&title=$page_title"),
+						"title" => "Reddit!"),
+			"delicious" => array(
+						"url" => "http://del.icio.us/post?".htmlentities("v=4&noui&jump=close&url=$page_url&title=$page_title"),
+						"title" => "Add to del.icio.us"),
+			"furl" => array(
+						"url" => "http://www.furl.net/storeIt.jsp?".htmlentities("t=$page_title&u=$page_url"),
+						"title" => "Furl this!"),
+			"ma.gnolia" => array(
+						"url" => "http://ma.gnolia.com/bookmarklet/add?".htmlentities("url=$page_url&title=$page_title"),
+						"title" => "Add to ma.gnolia"),
+			"newsvine" => array(
+						"url" => "http://www.newsvine.com/_tools/seed".htmlentities("&save?u=$page_url&h=$page_title"), 
+						"title" => "Save to Newsvine!"),
+			"live" => array(
+						"url" => "https://favorites.live.com/quickadd.aspx?".htmlentities("marklet=1&mkt=en-us&url=$page_url&title=$page_title&top=1"),
+						"title" => "Add to Windows Live"),
+			"myweb" => array(
+						"url" =>  "http://myweb.yahoo.com/myresults/bookmarklet?".htmlentities("t=$page_title&u=$page_url&ei=UTF"),
+						"title" => "Add to Yahoo MyWeb"),
+			"google" => array(
+						"url" =>  "http://www.google.com/bookmarks/mark?".htmlentities("op=edit&output=popup&bkmk=$page_url&title=$page_title"),
+						"title" => "Googlize this post!"),
+			"stumbleupon" => array(
+						"url" => "http://www.stumbleupon.com/submit?".htmlentities("url=$page_url&title=$page_title"),
+						"title" => "Stumble It!"),
+			"facebook" => array(
+					   "url" => "http://www.facebook.com/share.php?".htmlentities("u=$page_url&t=$page_title"),
+					   "title" => "Share on Facebook"),
+			"simpy" => array(
+						"url" => "http://simpy.com/simpy/LinkAdd.do?".htmlentities("title=$page_title&href=$page_url"),
+						"title" => "Add to Simpy")
 		); 
 	
-		if($obj->ShareIcons){
-		$format = self::$IconTransparent ? "_trans" : "";
-		if(!self::$disable_sharethis_title) $snippet = '<h3>Share This !</h3>'; // Only show the title if it hasn't been disabled
-		$snippet .= '<ul class="share-list">';
+		if($obj->ShareIcons || self::$dataobject_sharing) {
+			$format = self::$IconTransparent ? "_trans" : "";
+			if(!self::$disable_sharethis_title) $snippet = '<h3>Share This !</h3>'; // Only show the title if it hasn't been disabled
+			$snippet .= '<ul class="share-list">';
 	
 			foreach(self::$EnabledIcons as $enabled){
 				$title = self::$ShowTitle ? $bookmarks[$enabled]['title'] : "";
@@ -155,12 +177,9 @@ class ShareIcons extends DataObjectDecorator {
 					$snippet .= '<img src="sharethis/images/icons/'.$enabled.$format.'.gif" alt="'. $bookmarks[$enabled]['title'].'" title="'. $bookmarks[$enabled]['title'].'"/>'.$title.'</a></li>';
 				}
 			}
-		
-		$snippet .= '</ul>';
 		}
-	
-	return $snippet ;
-	}
-	
+		$snippet .= '</ul>';	
+		return $snippet;
+	}	
 }
 ?>
