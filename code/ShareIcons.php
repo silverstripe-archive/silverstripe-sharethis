@@ -90,7 +90,7 @@ class ShareIcons extends DataObjectDecorator {
 	*/
 	
 	function updateCMSFields(FieldSet &$fields) {
-		$fields->addFieldToTab("Root.Behaviour", new CheckboxField("ShareIcons","Show Share Icons on this page ?"));
+		$fields->addFieldToTab("Root.Behaviour", new CheckboxField("ShareIcons",_t('ShareIcons.SHOWSHAREICONS','Show Share Icons in this page ?')));
 		return $fields;
 	}
 	
@@ -120,51 +120,51 @@ class ShareIcons extends DataObjectDecorator {
 		$bookmarks = array(
 			"email" => array(
 						"url" => "mailto:?body=$page_url",
-						"title" => "Email"),
+						"title" => _t('ShareIcons.EMAIL','Email')),
 			"print" => array(
 						"url" => "javascript:window.print()",
-						"title" => "Print"),	
+						"title" => _t('ShareIcons.PRINT','Print')),	
 			"digg" => array(
 						"url" => "http://digg.com/submit?".htmlentities("phase=2&url=$page_url&title=$page_title"),
-						"title" => "Digg this!"),
+						"title" => _t('ShareIcons.DIGGTHIS','Digg this!')),
 			"reddit" => array(
 						"url" => "http://reddit.com/submit?".htmlentities("url=$page_url&title=$page_title"),
-						"title" => "Reddit!"),
+						"title" => _t('ShareIcons.REDDIT','Reddit!')),
 			"delicious" => array(
 						"url" => "http://del.icio.us/post?".htmlentities("v=4&noui&jump=close&url=$page_url&title=$page_title"),
-						"title" => "Add to del.icio.us"),
+						"title" => _t('ShareIcons.DELICIOUS','Add to del.icio.us')),
 			"furl" => array(
 						"url" => "http://www.furl.net/storeIt.jsp?".htmlentities("t=$page_title&u=$page_url"),
-						"title" => "Furl this!"),
+						"title" => _t('ShareIcons.FURLTHIS','Furl this!')),
 			"ma.gnolia" => array(
 						"url" => "http://ma.gnolia.com/bookmarklet/add?".htmlentities("url=$page_url&title=$page_title"),
-						"title" => "Add to ma.gnolia"),
+						"title" => _t('ShareIcons.MAGNOLIA','Add to ma.gnolia')),
 			"newsvine" => array(
 						"url" => "http://www.newsvine.com/_tools/seed".htmlentities("&save?u=$page_url&h=$page_title"), 
-						"title" => "Save to Newsvine!"),
+						"title" => _t('ShareIcons.NEWSVINE','Save to Newsvine!')),
 			"live" => array(
 						"url" => "https://favorites.live.com/quickadd.aspx?".htmlentities("marklet=1&mkt=en-us&url=$page_url&title=$page_title&top=1"),
-						"title" => "Add to Windows Live"),
+						"title" => _t('ShareIcons.WINDOWSLIVE','Add to Windows Live')),
 			"myweb" => array(
 						"url" =>  "http://myweb.yahoo.com/myresults/bookmarklet?".htmlentities("t=$page_title&u=$page_url&ei=UTF"),
-						"title" => "Add to Yahoo MyWeb"),
+						"title" => _t('ShareIcons.YAHOO','Add to Yahoo MyWeb')),
 			"google" => array(
 						"url" =>  "http://www.google.com/bookmarks/mark?".htmlentities("op=edit&output=popup&bkmk=$page_url&title=$page_title"),
-						"title" => "Googlize this post!"),
+						"title" => _t('ShareIcons.GOOGLIZE','Googlize this post!')),
 			"stumbleupon" => array(
 						"url" => "http://www.stumbleupon.com/submit?".htmlentities("url=$page_url&title=$page_title"),
-						"title" => "Stumble It!"),
+						"title" => _t('ShareIcons.STUMBLEIT','Stumble It!')),
 			"facebook" => array(
 					   "url" => "http://www.facebook.com/share.php?".htmlentities("u=$page_url&t=$page_title"),
-					   "title" => "Share on Facebook"),
+					   "title" => _t('ShareIcons.FACEBOOK','Share on Facebook')),
 			"simpy" => array(
 						"url" => "http://simpy.com/simpy/LinkAdd.do?".htmlentities("title=$page_title&href=$page_url"),
-						"title" => "Add to Simpy")
+						"title" => _t('ShareIcons.SIMPY','Add to Simpy'))
 		); 
 	
 		if($obj->ShareIcons || self::$dataobject_sharing) {
 			$format = self::$IconTransparent ? "_trans" : "";
-			if(!self::$disable_sharethis_title) $snippet = '<h3>Share This !</h3>'; // Only show the title if it hasn't been disabled
+			if(!self::$disable_sharethis_title) $snippet = '<h3>' . _t('ShareIcons.SHARETHIS','Share This !') . '</h3>'; // Only show the title if it hasn't been disabled
 			$snippet .= '<ul class="share-list">';
 	
 			foreach(self::$EnabledIcons as $enabled){
