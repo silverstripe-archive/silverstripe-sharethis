@@ -106,7 +106,7 @@ class ShareIcons extends DataObjectDecorator {
 	 */
 	function augmentDatabase() {}
 	
-	function ShareThis(){
+	function ShareThis($overrideDisplay=false){
 		$snippet = "";
 		$page_url = Director::absoluteBaseURL() . Controller::curr()->Link();
 		$obj = $this->owner;
@@ -162,7 +162,7 @@ class ShareIcons extends DataObjectDecorator {
 						"title" => _t('ShareIcons.SIMPY','Add to Simpy'))
 		); 
 	
-		if($obj->ShareIcons || self::$dataobject_sharing) {
+		if($overrideDisplay || $obj->ShareIcons || self::$dataobject_sharing) {
 			$format = self::$IconTransparent ? "_trans" : "";
 			if(!self::$disable_sharethis_title) $snippet = '<h3>' . _t('ShareIcons.SHARETHIS','Share This !') . '</h3>'; // Only show the title if it hasn't been disabled
 			$snippet .= '<ul class="share-list">';
