@@ -76,7 +76,7 @@ class ShareIcons extends DataObjectDecorator {
 	 */
 	static $disable_sharethis_title = false;
 		 
-	function extraDBFields(){
+	function extraStatics(){
 	return array(
 		'db' => array(
 			'ShareIcons' => 'Boolean'
