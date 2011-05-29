@@ -31,14 +31,12 @@ class ShareIcons extends DataObjectDecorator {
 	 * - digg
 	 * - reddit
 	 * - delicious
-	 * - furl
-	 * - ma.gnolia
 	 * - newsvine
 	 * - live
 	 * - myweb
 	 * - google
 	 * - stumbleupon
-	 * - simpy
+	 * - facebook
 	 * 
 	 * Example: ShareIcons::$EnabledIcons = array('digg', 'delicious');
 	 * @var array
@@ -137,12 +135,6 @@ class ShareIcons extends DataObjectDecorator {
 			"delicious" => array(
 						"url" => "http://del.icio.us/post?".htmlentities("v=4&noui&jump=close&url=$page_url&title=$page_title"),
 						"title" => _t('ShareIcons.DELICIOUS','Add to del.icio.us')),
-			"furl" => array(
-						"url" => "http://www.furl.net/storeIt.jsp?".htmlentities("t=$page_title&u=$page_url"),
-						"title" => _t('ShareIcons.FURLTHIS','Furl this!')),
-			"ma.gnolia" => array(
-						"url" => "http://ma.gnolia.com/bookmarklet/add?".htmlentities("url=$page_url&title=$page_title"),
-						"title" => _t('ShareIcons.MAGNOLIA','Add to ma.gnolia')),
 			"newsvine" => array(
 						"url" => "http://www.newsvine.com/_tools/seed".htmlentities("&save?u=$page_url&h=$page_title"), 
 						"title" => _t('ShareIcons.NEWSVINE','Save to Newsvine!')),
@@ -160,10 +152,7 @@ class ShareIcons extends DataObjectDecorator {
 						"title" => _t('ShareIcons.STUMBLEIT','Stumble It!')),
 			"facebook" => array(
 					   "url" => "http://www.facebook.com/share.php?".htmlentities("u=$page_url&t=$page_title"),
-					   "title" => _t('ShareIcons.FACEBOOK','Share on Facebook')),
-			"simpy" => array(
-						"url" => "http://simpy.com/simpy/LinkAdd.do?".htmlentities("title=$page_title&href=$page_url"),
-						"title" => _t('ShareIcons.SIMPY','Add to Simpy'))
+					   "title" => _t('ShareIcons.FACEBOOK','Share on Facebook'))
 		); 
 	
 		if($overrideDisplay || $obj->ShareIcons || self::$dataobject_sharing) {

@@ -20,5 +20,5 @@ else {
  * For custom properties that you should add to your _config.php file, 
  * please see the comment at the top of the {@link ShareIcons} class.
  */
-ShareIcons::$EnabledIcons = array("email", "print", "digg", "reddit", "delicious", "furl", "ma.gnolia", "newsvine", "live", "myweb", "google", "stumbleupon", "simpy", "facebook");
+ShareIcons::$EnabledIcons = array("email", "print", "digg", "reddit", "delicious", "newsvine", "live", "myweb", "google", "stumbleupon", "facebook");
 ShareIcons::$ShowTitle = false;
