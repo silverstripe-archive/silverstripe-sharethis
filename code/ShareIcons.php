@@ -109,14 +109,18 @@ class ShareIcons extends DataObjectDecorator {
 	function ShareThis($overrideDisplay=false){
 		$snippet = "";
 		$page_url = $this->owner->AbsoluteLink();
-		$obj = $this->owner;
-		if(self::$dataobject_sharing) {
+		
+                $obj = $this->owner;
+                
+                if(self::$dataobject_sharing) {
 			$page_url = Director::absoluteBaseURL() . self::$dataobject_controller . $obj->ID;
 		}
+                
 		$page_title = $obj->Title;	
 		if(self::$custom_title) {
 			$page_title .= ' ' . self::$custom_title;
 		}
+                
 		$bookmarks = array(
 			"email" => array(
 						"url" => "mailto:?body=$page_url",
@@ -182,4 +186,3 @@ class ShareIcons extends DataObjectDecorator {
 		return $snippet;
 	}	
 }
-?>

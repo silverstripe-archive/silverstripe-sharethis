@@ -18,4 +18,3 @@ $lang['en_US']['ShareIcons']['STUMBLEIT'] = 'Stumble It!';
 $lang['en_US']['ShareIcons']['SIMPY'] = 'Add to Simpy';
 $lang['en_US']['ShareIcons']['SHARETHIS'] = 'Share This !';
 $lang['en_US']['ShareIcons']['FACEBOOK'] = 'Share on Facebook';
-?>
