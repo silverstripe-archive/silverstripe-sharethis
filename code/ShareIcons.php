@@ -92,18 +92,6 @@ class ShareIcons extends DataObjectDecorator {
 		return $fields;
 	}
 	
-	/**
-	 * At the moment this method does nothing.
-	 */
-	
-	function augmentSQL(SQLQuery &$query) {}
-
-
-	/**
-	 * At the moment this method does nothing.
-	 */
-	function augmentDatabase() {}
-	
 	function ShareThis($overrideDisplay=false){
 		$snippet = "";
 		$page_url = $this->owner->AbsoluteLink();
