@@ -140,7 +140,10 @@ class ShareIcons extends DataObjectDecorator {
 						"title" => _t('ShareIcons.STUMBLEIT','Stumble It!')),
 			"facebook" => array(
 					   "url" => "http://www.facebook.com/share.php?".htmlentities("u=$page_url&t=$page_title"),
-					   "title" => _t('ShareIcons.FACEBOOK','Share on Facebook'))
+					   "title" => _t('ShareIcons.FACEBOOK','Share on Facebook')),
+                        "twitter" => array(
+					   "url" => "http://twitter.com/share?".htmlentities("text=$page_title : &url=$page_url"),
+					   "title" => _t('ShareIcons.TWITTER','Tweet this'))
 		); 
 	
 		if($overrideDisplay || $obj->ShareIcons || self::$dataobject_sharing) {

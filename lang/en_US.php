@@ -15,3 +15,4 @@ $lang['en_US']['ShareIcons']['GOOGLIZE'] = 'Googlize this post!';
 $lang['en_US']['ShareIcons']['STUMBLEIT'] = 'Stumble It!';
 $lang['en_US']['ShareIcons']['SIMPY'] = 'Add to Simpy';
 $lang['en_US']['ShareIcons']['FACEBOOK'] = 'Share on Facebook';
+$lang['en_US']['ShareIcons']['TWITTER'] = 'Tweet this';
