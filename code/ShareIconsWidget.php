@@ -39,5 +39,3 @@ class ShareIconsWidget extends Widget {
 		if ($container) return $container->Link('post');
 	}
 }
-
-?>
