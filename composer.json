@@ -1,0 +1,20 @@
+{
+	"name": "silverstripe-labs/sharethis",
+	"description": "The ShareThis module will enable automatically inserting Social Bookmarks on Silverstripe sites.",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe-labs", "sharethis", "third-party"],
+	"authors": [
+	{
+		"name": "Ingo Schommer",
+		"email": "ingo@silverstripe.com"
+	},
+	{
+		"name": "Lakshan Perera",
+		"email": "perera.lakshan@gmail.com"
+	}
+	],
+	"require":
+	{
+		"silverstripe/framework": "2.4.*"
+	}
+}
